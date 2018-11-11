@@ -1,3 +1,6 @@
+//Progrema creado por:Brian Steve Rodas Hernandez
+//Numero de carnet: RH18031
+
 #include <iostream> //Libreria de entradas y salidas
 #include <stdlib.h> //Libreria para funciones como new o delete
 #include <stdio.h>
@@ -71,6 +74,8 @@ int menu(void) { //Ejecutar la funcion de menu
 int main(void) {
 	Cola cola; //Incluir cola
     int x; //Variable x, para manejar datos
+    int xx[49]; //Variable para manejar posiciones de x
+    int i; //Variable i
     int op; //Variable para opciones del menu
     int opx; //Variable para opcion de continuar o terminar operaciones de caso 1
     Puntero p_aux;
@@ -93,6 +98,9 @@ int main(void) {
 			do { //Ciclo para ingresar numeros
 				system("cls");
 				x = x + 1; //Acumulador, para agregar numeros a la cola en x
+				for ( i = 0; i < x; i++) {
+					xx[i] = x; //Asignar valores de x
+				}
 				case1(); //Ejecutar funcion menu de caso 1
 				if (x > 50) { //Si x sobrepasa el limite a encolar de 50
 					six(); //Ejecutar funcion de caso de avertencia de cola llena
@@ -120,12 +128,14 @@ int main(void) {
             goto returnmenu; //Regresar al punto del menu
             
         case 3:
-        	if (x == 1) {
-        		cout << "lol";
-        		cout << PlaySound((LPCSTR)sound1, NULL, SND_FILENAME | SND_ASYNC); //Reproducir audio de bienvenida
+        	if (xx[i] == 1) { // Si es igual a uno
+        		cout << PlaySound((LPCSTR)sound1, NULL, SND_FILENAME | SND_ASYNC); //Reproducir audio
+        		system("pause"); //Pusar pantalla del sistema
+        		goto returnmenu; //Regresar al punto del menu
 			}
-			else {
-				system("pause");
+			else if (xx[i] == 2) { //Si no es igual a uno
+				cout << PlaySound((LPCSTR)sound1, NULL, SND_FILENAME | SND_ASYNC); //Reproducir audio
+				system("pause"); //Pusar pantalla del sistema
         		goto returnmenu; //Regresar al punto del menu
 			}
             
@@ -159,7 +169,7 @@ int main(void) {
 	return 0; //Retornar valores a cero
 }
 
-void bienvenida() {
+void bienvenida() { //Funcion para mensaje de bienvenida
 	system("color 03"); //Cambiar color de consola, fondo negro, letras turquesa
 	cout << endl << endl << endl << endl << endl << //Espacios de linea
 	//Imprimir mensaje de bienvenida en pantalla de consola
@@ -274,14 +284,14 @@ int sinox(int x) { //Funcion para mostrar numero insertado y preguntar continuid
 	cout << "\t\t\t\t\t       1. Si               2. No" << endl;
 }
 
-int sino2x(int x) {
+int sino2x(int x) { //Variable en caso que se elimine un numero
 	//Imprimir mensaje de exito al insertar numero en cola
     cout << "\t\t\t\t|-------------------------------------------------------|" << endl;
 	cout << "\t\t\t\t|              ==> Numero " << x << " eliminado <==               |" << endl;
 	cout << "\t\t\t\t ------------------------------------------------------- " << endl;
 }
 
-void case2_4() {
+void case2_4() { //Funcion para menu de opcion 2 y 4
 	cout << endl << endl << endl << endl << endl << endl; //Espacios de linea
     //Imprimir cabecera de menu mostrar cola
     cout << "\t\t\t\t -------------------------------------------------------" << endl;
