@@ -14,7 +14,7 @@ int sinox(int x); //Funcion para asignar numero y continuidad
 
 void case2_4(); //Funcion para menu de caso 2 y 3
 int sino2x(int x); //Funcion para mensaje de numero eliminado
-void advacia();
+void advacia(); //Funcion para mensaje de cola vacia
 
 void case5(); //Funcion para menu de caso 4
 
